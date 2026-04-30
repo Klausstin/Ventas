@@ -1,5 +1,5 @@
 const CONFIG = {
-  ownerWhatsapp: "5491100000000",
+  ownerWhatsapp: "5491135717017",
   leadEndpoint: "",
   currency: "USD",
 };
