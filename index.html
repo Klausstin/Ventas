@@ -1,0 +1,212 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gran Berta Group | Portal de pedidos</title>
+    <meta
+      name="description"
+      content="Portal interactivo de Gran Berta Group para orientar pedidos, alcances, valores, calidad, tiempos y expectativas."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="access-screen" id="accessScreen" aria-labelledby="accessTitle">
+        <div class="brand-panel">
+          <div class="brand-lockup" aria-label="Gran Berta Group">
+            <span class="brand-mark">GBG</span>
+            <span>
+              <strong>Gran Berta Group</strong>
+              <small>Pedidos, alcance y expectativas</small>
+            </span>
+          </div>
+          <div class="intro-copy">
+            <p class="eyebrow">Acceso guiado</p>
+            <h1 id="accessTitle">Antes de cotizar, entendamos qué necesitás.</h1>
+            <p>
+              Este portal ayuda a ordenar pedidos, rangos de inversión, tiempos y
+              criterios de calidad para que cada conversación arranque mejor.
+            </p>
+          </div>
+          <div class="unit-preview" aria-label="Unidades de negocio">
+            <span>Gran Berta</span>
+            <span>GB Films</span>
+            <span>Bani VFX</span>
+          </div>
+        </div>
+
+        <form class="access-card" id="leadForm">
+          <div>
+            <p class="eyebrow">Datos requeridos</p>
+            <h2>Ingresá para ver opciones y valores orientativos.</h2>
+          </div>
+
+          <label>
+            Nombre y apellido
+            <input name="name" autocomplete="name" required placeholder="Ej. Martina Lopez" />
+          </label>
+
+          <label>
+            Empresa o proyecto
+            <input name="company" autocomplete="organization" required placeholder="Ej. Marca / agencia / productora" />
+          </label>
+
+          <div class="field-grid">
+            <label>
+              Email
+              <input name="email" type="email" autocomplete="email" placeholder="tu@email.com" />
+            </label>
+            <label>
+              WhatsApp o telefono
+              <input name="phone" type="tel" autocomplete="tel" placeholder="+54 9 ..." />
+            </label>
+          </div>
+
+          <label>
+            Que estas buscando
+            <textarea name="intent" rows="3" required placeholder="Contanos en una frase que necesitas resolver"></textarea>
+          </label>
+
+          <label class="check-row">
+            <input name="consent" type="checkbox" required />
+            <span>Acepto compartir mis datos para acceder a informacion comercial orientativa.</span>
+          </label>
+
+          <p class="form-note" id="formNote">
+            Para avanzar necesitamos email o telefono. Los valores son orientativos y dependen del brief final.
+          </p>
+          <button class="primary-btn" type="submit">Entrar al portal</button>
+        </form>
+      </section>
+
+      <section class="portal hidden" id="portal" aria-labelledby="portalTitle">
+        <header class="portal-header">
+          <div class="brand-lockup">
+            <span class="brand-mark">GBG</span>
+            <span>
+              <strong>Gran Berta Group</strong>
+              <small id="leadBadge">Brief abierto</small>
+            </span>
+          </div>
+          <button class="ghost-btn" id="resetLead" type="button">Cambiar datos</button>
+        </header>
+
+        <section class="selector-panel">
+          <div>
+            <p class="eyebrow">Paso 1</p>
+            <h1 id="portalTitle">Elegí la unidad que mejor encaja con tu pedido.</h1>
+          </div>
+          <div class="unit-tabs" role="tablist" aria-label="Unidades de negocio">
+            <button class="unit-tab active" data-unit="granBerta" type="button">
+              <span class="tab-mark gb">GB</span>
+              Gran Berta
+            </button>
+            <button class="unit-tab" data-unit="gbFilms" type="button">
+              <span class="tab-mark films">GF</span>
+              GB Films
+            </button>
+            <button class="unit-tab" data-unit="baniVfx" type="button">
+              <span class="tab-mark bani">BV</span>
+              Bani VFX
+            </button>
+          </div>
+        </section>
+
+        <section class="workspace">
+          <aside class="business-card" id="businessCard"></aside>
+
+          <section class="builder">
+            <div class="step-card">
+              <div class="step-title">
+                <span>2</span>
+                <h2>Seleccioná el tipo de trabajo</h2>
+              </div>
+              <div class="option-grid" id="serviceOptions"></div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-title">
+                <span>3</span>
+                <h2>Definí calidad, alcance y urgencia</h2>
+              </div>
+              <div class="control-grid">
+                <label>
+                  Nivel de calidad
+                  <select id="qualitySelect"></select>
+                </label>
+                <label>
+                  Alcance estimado
+                  <select id="scopeSelect"></select>
+                </label>
+                <label>
+                  Tiempo requerido
+                  <select id="urgencySelect"></select>
+                </label>
+              </div>
+            </div>
+
+            <div class="step-card">
+              <div class="step-title">
+                <span>4</span>
+                <h2>Ajustá entregables y contexto</h2>
+              </div>
+              <div class="deliverable-grid" id="deliverableOptions"></div>
+              <label class="brief-box">
+                Notas para el equipo
+                <textarea
+                  id="briefNotes"
+                  rows="4"
+                  placeholder="Ej. fecha de lanzamiento, referencias, piezas necesarias, territorios, restricciones de marca"
+                ></textarea>
+              </label>
+            </div>
+          </section>
+
+          <aside class="summary-panel">
+            <div class="summary-card">
+              <p class="eyebrow">Resultado orientativo</p>
+              <h2 id="summaryTitle">Pedido en armado</h2>
+              <dl class="estimate-list">
+                <div>
+                  <dt>Inversion</dt>
+                  <dd id="priceRange">-</dd>
+                </div>
+                <div>
+                  <dt>Tiempo</dt>
+                  <dd id="timeRange">-</dd>
+                </div>
+                <div>
+                  <dt>Calidad</dt>
+                  <dd id="qualityLabel">-</dd>
+                </div>
+              </dl>
+              <div class="expectations">
+                <h3>Que incluye</h3>
+                <ul id="includedList"></ul>
+                <h3>Que no incluye</h3>
+                <ul id="excludedList"></ul>
+              </div>
+              <div class="cta-stack">
+                <a class="primary-btn" id="whatsappLink" target="_blank" rel="noreferrer">Enviar pedido</a>
+                <button class="ghost-btn" id="copySummary" type="button">Copiar resumen</button>
+              </div>
+              <p class="form-note">
+                Estos rangos no reemplazan una cotizacion formal. Sirven para alinear expectativas antes del brief final.
+              </p>
+            </div>
+          </aside>
+        </section>
+      </section>
+    </main>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>
